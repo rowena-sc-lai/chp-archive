@@ -1,6 +1,6 @@
 const fs = require('fs');
 const request = require('request');
-const moment = require('moment');
+const moment = require('moment-timezone');
 const mkdirp = require('mkdirp');
 const path = require('path');
 
@@ -13,7 +13,6 @@ const path = require('path');
 
 const downloadPdf = async (folder, filename, url) => {
   await new Promise((resolve, reject) => {
-    console.log(folder)
     mkdirp.sync(folder);
     const file = fs.createWriteStream(path.join(folder, filename));
     request({
@@ -62,7 +61,7 @@ const generateHtml = () => {
 }
 
 const run = async () => {
-  const today = moment().format('YYYY-MM-DD');
+  const today = moment().tz("Asia/Hong_Kong").format('YYYY-MM-DD');
   await downloadPdf(`data/${today}`, 'building_list_chi.pdf', 'https://www.chp.gov.hk/files/pdf/building_list_chi.pdf');
   await downloadPdf(`data/${today}`, 'building_list_eng.pdf', 'https://www.chp.gov.hk/files/pdf/building_list_eng.pdf');
   await downloadPdf(`data/${today}`, 'flights_trains_tc.pdf', 'https://www.chp.gov.hk/files/pdf/flights_trains_tc.pdf');
