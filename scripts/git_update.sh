@@ -20,8 +20,6 @@ commit_data() {
   # with "[skip ci]" to avoid a build loop
   # and Travis build number for reference
   git commit -m "pushing new pdfs at $dateAndMonth (Build $TRAVIS_BUILD_NUMBER)" -m "[skip ci]"    
-
-  git commit -m "Travis update checksum files: $dateAndMonth (Build $TRAVIS_BUILD_NUMBER)" -m "[skip ci]"
 }
 
 upload_files() {
