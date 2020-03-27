@@ -1,0 +1,14 @@
+{
+  "name": "chp-archive",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:nandiheath/chp-archive.git",
+  "author": "Nandiheath <nandi0315@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "bluebird": "^3.7.2",
+    "mkdirp": "^1.0.3",
+    "moment": "^2.24.0",
+    "request": "^2.88.2"
+  }
+}
