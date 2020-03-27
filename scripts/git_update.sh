@@ -14,6 +14,8 @@ commit_data() {
   dateAndMonth=`date "+%b %Y"`
   # Stage the modified files in dist/output
   git add -f data
+
+  git add index.html
   # Create a new commit with a custom build message
   # with "[skip ci]" to avoid a build loop
   # and Travis build number for reference
@@ -33,8 +35,8 @@ commit_data
 
 # Attempt to commit to git only if "git commit" succeeded
 if [ $? -eq 0 ]; then
-  echo "A new commit with changed ATM JSON files exists. Uploading to GitHub"
+  echo "A new commit with changed data/index.html . Uploading to GitHub"
   upload_files
 else
-  echo "No changes in ATM JSON files. Nothing to do"
+  echo "No changes. Skip deploying"
 fi
