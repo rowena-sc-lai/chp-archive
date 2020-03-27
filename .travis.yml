@@ -19,8 +19,8 @@ jobs:
   include:
     - stage: build
       script:
-        - cd $TRAVIS_BUILD_DIR
-        - bash scripts/run.sh
+        # - cd $TRAVIS_BUILD_DIR
+        - node run.js
       after_success:
         - bash scripts/git_update.sh
     # - stage: deploy
