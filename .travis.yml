@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-    - "8"
+    - "12"
 stages:
   - name: build
   # Build the docker image only on master branch
